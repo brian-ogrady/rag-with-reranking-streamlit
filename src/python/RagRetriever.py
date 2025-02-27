@@ -14,9 +14,6 @@ from langchain_nvidia_ai_endpoints import NVIDIARerank
 from langchain.retrievers import ContextualCompressionRetriever
 
 
-load_dotenv()
-
-
 ASTRA_DB_APPLICATION_TOKEN = st.secrets["ASTRA_DB_APPLICATION_TOKEN"]
 ASTRA_DB_API_ENDPOINT = st.secrets["ASTRA_DB_API_ENDPOINT"]
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
