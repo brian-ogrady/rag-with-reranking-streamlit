@@ -46,7 +46,7 @@ st.sidebar.title("RAG Configuration")
 # Collection selection
 collection_name = st.sidebar.text_input(
     "AstraDB Collection Name",
-    value="rag_documents"
+    value="pdfs"
 )
 
 # Model selection

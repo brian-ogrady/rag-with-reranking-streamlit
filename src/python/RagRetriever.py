@@ -15,18 +15,13 @@ from langchain_nvidia_ai_endpoints import NVIDIARerank
 from langchain.retrievers import ContextualCompressionRetriever
 
 
-try:
-    ASTRA_DB_APPLICATION_TOKEN = st.secrets["ASTRA_DB_APPLICATION_TOKEN"]
-    ASTRA_DB_API_ENDPOINT = st.secrets["ASTRA_DB_API_ENDPOINT"]
-    OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"] 
-    RERANKER_URL = st.secrets["RERANKER_URL"]
-except (KeyError, AttributeError):
-    from dotenv import load_dotenv
-    load_dotenv()
-    ASTRA_DB_APPLICATION_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
-    ASTRA_DB_API_ENDPOINT = os.getenv("ASTRA_DB_API_ENDPOINT")
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-    RERANKER_URL = os.getenv("RERANKER_URL")
+load_dotenv()
+
+
+ASTRA_DB_APPLICATION_TOKEN = st.secrets["ASTRA_DB_APPLICATION_TOKEN"]
+ASTRA_DB_API_ENDPOINT = st.secrets["ASTRA_DB_API_ENDPOINT"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+RERANKER_URL = st.secrets["NV_RERANK_URL"]
 
 
 class RAGRetriever:
