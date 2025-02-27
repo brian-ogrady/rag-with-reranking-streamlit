@@ -2,6 +2,7 @@
 
 This application provides a Retrieval-Augmented Generation (RAG) system that uses AstraDB as the vector database and NVIDIA's reranking technology to enhance the quality of retrieved documents.
 
+[Application URL](https://brian-ogrady-rag-with-reranking-streamlit-app-7pycae.streamlit.app/)
 ## Overview
 
 The RAG Query System combines:
