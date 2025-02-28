@@ -1,4 +1,3 @@
-import os
 import uuid
 from typing import List, Dict, Any, Optional, Tuple
 
@@ -202,7 +201,7 @@ class RAGRetriever:
         Returns:
             List[Document]: List of relevant documents
         """
-        return self.retriever.get_relevant_documents(query)
+        return self.base_retriever.get_relevant_documents(query)
     
     def similarity_search(
         self, 

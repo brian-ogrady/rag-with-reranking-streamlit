@@ -1,16 +1,25 @@
 import streamlit as st
 import os
 import sys
-from dotenv import load_dotenv
 import uuid
 from datetime import datetime
+
+from arize.otel import register
+from openinference.instrumentation.langchain import LangChainInstrumentor
+
+
+tracer_provider = register(
+    space_id = st.secrets["ARIZE_SPACE_ID"], # in app space settings page
+    api_key = st.secrets["ARIZE_API_KEY"], # in app space settings page
+    project_name = "streamlit-rag-app", # name this to whatever you would like
+)
+LangChainInstrumentor().instrument(tracer_provider=tracer_provider)
+
 
 # Add path to RagRetriever
 sys.path.append(os.path.expanduser("~/src/python"))
 from src.python.RagRetriever import RAGRetriever
 
-# Load environment variables
-load_dotenv()
 
 # Set page configuration
 st.set_page_config(
